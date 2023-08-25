@@ -102,14 +102,30 @@ public class Practice {
 
     // Display all the countries' names
     public static List<String> getAllCountryNames() {
-        //TODO Implement the method
-        return new ArrayList<>();
+//        return getAllCountries().stream()
+//                .map(country -> country.getCountryName())
+//                .collect(Collectors.toList());
+
+        return getAllCountries().stream()
+                .map(Country::getCountryName)
+                .collect(Collectors.toList());
     }
 
     // Display all the departments' managers' first names
     public static List<String> getAllDepartmentManagerFirstNames() {
-        //TODO Implement the method
-        return new ArrayList<>();
+//        return getAllDepartments().stream()
+//                .map(department -> department.getManager())
+//                .map(manager -> manager.getFirstName())
+//                .collect(Collectors.toList());
+
+//        return getAllDepartments().stream()
+//                .map(department -> department.getManager().getFirstName())
+//                .collect(Collectors.toList());
+
+        return getAllDepartments().stream()
+                .map(Department::getManager)
+                .map(Employee::getFirstName)
+                .collect(Collectors.toList());
     }
 
     // Display all the departments where manager name of the department is 'Steven'
