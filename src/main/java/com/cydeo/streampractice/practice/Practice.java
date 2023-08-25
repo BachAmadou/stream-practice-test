@@ -51,8 +51,7 @@ public class Practice {
 
     // Display all the departments
     public static List<Department> getAllDepartments() {
-        //TODO Implement the method
-        return new ArrayList<>();
+        return departmentService.readAll();
     }
 
     // Display all the jobs
