@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 public class Practice {
@@ -56,32 +57,47 @@ public class Practice {
 
     // Display all the jobs
     public static List<Job> getAllJobs() {
-        //TODO Implement the method
-        return new ArrayList<>();
+        return jobService.readAll();
     }
 
     // Display all the locations
     public static List<Location> getAllLocations() {
-        //TODO Implement the method
-        return new ArrayList<>();
+        return locationService.readAll();
     }
 
     // Display all the regions
     public static List<Region> getAllRegions() {
-        //TODO Implement the method
-        return new ArrayList<>();
+        return regionService.readAll();
     }
 
     // Display all the job histories
     public static List<JobHistory> getAllJobHistories() {
-        //TODO Implement the method
-        return new ArrayList<>();
+        return jobHistoryService.readAll();
     }
 
     // Display all the employees' first names
     public static List<String> getAllEmployeesFirstName() {
-        //TODO Implement the method
-        return new ArrayList<>();
+
+        // Method - 1: with for loop
+//        List<Employee> employees = getAllEmployees();
+//
+//        List<String> firstName = new ArrayList<>();
+//
+//        for ( Employee eachEmployee : employees) {
+//            firstName.add(eachEmployee.getFirstName());
+//        }
+//        return firstName;
+
+        // Method -2: Using stream() - with lambda
+//        return getAllEmployees().stream()
+//                .map(employee -> employee.getFirstName())
+//                .collect(Collectors.toList());
+
+        // Method -3: Using stream() - with method reference(::)
+        return getAllEmployees().stream()
+                .map(Employee::getFirstName)
+                .collect(Collectors.toList());
+
     }
 
     // Display all the countries' names
