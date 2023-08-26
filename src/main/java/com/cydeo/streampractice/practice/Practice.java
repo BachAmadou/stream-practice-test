@@ -197,8 +197,11 @@ public class Practice {
 
     // Display the salary of the employee Grant Douglas (lastName: Grant, firstName: Douglas)
     public static Long getGrantDouglasSalary() throws Exception {
-        //TODO Implement the method
-        return 1L;
+        return getAllEmployees().stream()
+                .filter(employee -> employee.getFirstName().equals("Douglas"))
+                .filter(employee -> employee.getLastName().equals("Grant"))
+                .findFirst().orElseThrow(() -> new Exception("No employee found"))
+                .getSalary();
     }
 
     // Display the maximum salary an employee gets
