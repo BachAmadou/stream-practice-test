@@ -206,7 +206,45 @@ public class Practice {
 
     // Display the maximum salary an employee gets
     public static Long getMaxSalary() throws Exception {
-        return 1L;
+//        return getAllEmployees().stream()
+//                .sorted(Comparator.comparing(Employee::getSalary).reversed())
+//                .findFirst().get().getSalary();
+
+        return getAllEmployees().stream()
+                .max(Comparator.comparing(Employee::getSalary))
+                .get().getSalary();
+
+//        return getAllEmployees().stream()
+//                .sorted(Comparator.comparing(Employee::getSalary).reversed())
+//                .limit(1).collect(Collectors.toList()).get(0).getSalary();
+
+//        return getAllEmployees().stream()
+//                .map(Employee::getSalary)
+//                .reduce((salary1, salary2) -> salary1 >= salary2 ? salary1 : salary2)
+//                .get();
+
+//        return getAllEmployees().stream()
+//                .map(Employee::getSalary)
+//                .reduce(Long::max)
+//                .get();
+
+//        return getAllEmployees().stream()
+//                .map(Employee::getSalary)
+//                .collect(Collectors.maxBy(Comparator.comparing(Long::longValue)))
+//                .get();
+
+//        return getAllEmployees().stream()
+//                .collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary)))
+//                .get().getSalary();
+
+//        return getAllEmployees().stream()
+//                .mapToLong(Employee::getSalary)
+//                .max().getAsLong();
+
+//        return getAllEmployees().stream()
+//                .map(Employee::getSalary)
+//                .collect(Collectors.reducing(Long::max))
+//                .get();
     }
 
     // Display the employee(s) who gets the maximum salary
